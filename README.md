@@ -9,3 +9,11 @@ The program expects a working OpenNMS `etc` directory located in the same place 
 Inside of it, the `opennms-datasources.xml` must point to a valid PostgreSQL database with the populated inventory, preferably including hardware inventory content.
 
 To run the problem, you should pass a list of Node IDs separated by space (i.e., each as individual arguments). The program will use the current code of the Kafka Producer to build the Protobuf payload and measure how long it takes to build it and how big it is for each provided Node ID.
+
+## Usage example
+
+```bash
+java -jar java -jar target/kafka-producer-test-1.0-SNAPSHOT-spring-boot.jar 123 456 789
+```
+
+Remember to run it from a directory that contains the OpenNMS `etc` directory. The above will get and process the nodes with IDs: `123`, `456`, and `789`.
